@@ -56,15 +56,18 @@ class MainActivity : AppCompatActivity() {
         val firstNum :Double = firstNumberTv.text.toString().toDouble()
         val secondNum :Double = secondNumberTv.text.toString().toDouble()
 
-        val answer :Double = when (operatorTv.text.toString()){
-            "+" -> firstNum+secondNum
-            "-" -> firstNum-secondNum
-            "*" -> firstNum*secondNum
-            "/" -> firstNum/secondNum
-            else -> firstNum%secondNum
+        var answer :Number = when (operatorTv.text.toString()){
+            "+" -> firstNum.plus(secondNum)
+            "-" -> firstNum.minus(secondNum)
+            "*" -> firstNum.times(secondNum)
+            "/" -> firstNum.div(secondNum)
+            else -> firstNum.rem(secondNum)
         }
+
         var answerString = answer.toString()
-        answerString.removeSuffix(".0")
+        if (answerString.endsWith(".0",true)) answer=answer.toInt()
+//        answerString.removeSuffix(".0")
+        answerString = answer.toString()
         if(answerString.length>12){
             answerString = answerString.subSequence(0,12) as String
         }
