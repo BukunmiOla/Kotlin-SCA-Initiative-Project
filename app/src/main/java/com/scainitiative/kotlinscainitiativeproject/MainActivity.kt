@@ -9,7 +9,9 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var activeTv : TextView
+    private lateinit var activeTv : TextView
+    private lateinit var answer :Number
+    var operator :String =""
     var operating: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +44,9 @@ class MainActivity : AppCompatActivity() {
             calculate()
             secondNumberTv.text=""
             firstNumberTv.text = answer_tv.text.toString()
+        }else if (operator=="="){
+            secondNumberTv.text=""
+            firstNumberTv.text = answer_tv.text.toString()
         }
         showAsExpression(view)
         operating =true
@@ -50,28 +55,29 @@ class MainActivity : AppCompatActivity() {
     fun equalButtonClicked(view:View){
         calculate()
         operating = false
+        operator= "="
     }
 
     private fun calculate() {
-        val firstNum :Double = firstNumberTv.text.toString().toDouble()
-        val secondNum :Double = secondNumberTv.text.toString().toDouble()
+        if (firstNumberTv.text.toString()=="")firstNumberTv.text="0"
+        if (secondNumberTv.text.toString()=="")secondNumberTv.text="0"
+           val firstNum: Double = firstNumberTv.text.toString().toDouble()
+            val secondNum: Double = secondNumberTv.text.toString().toDouble()
 
-        var answer :Number = when (operatorTv.text.toString()){
-            "+" -> firstNum.plus(secondNum)
-            "-" -> firstNum.minus(secondNum)
-            "*" -> firstNum.times(secondNum)
-            "/" -> firstNum.div(secondNum)
-            else -> firstNum.rem(secondNum)
-        }
+            answer = when (operatorTv.text.toString()) {
+                "+" -> firstNum.plus(secondNum)
+                "-" -> firstNum.minus(secondNum)
+                "*" -> firstNum.times(secondNum)
+                "/" -> firstNum.div(secondNum)
+                else -> firstNum.rem(secondNum)
+            }
 
-        var answerString = answer.toString()
-        if (answerString.endsWith(".0",true)) answer=answer.toInt()
-//        answerString.removeSuffix(".0")
-        answerString = answer.toString()
-        if(answerString.length>12){
-            answerString = answerString.subSequence(0,12) as String
-        }
-        answer_tv.text = answerString
+            if (answer.toString().endsWith(".0", true)) answer = answer.toInt()
+            var answerString = answer.toString()
+            if (answerString.length > 12) {
+                answerString = answerString.subSequence(0, 12) as String
+            }
+            answer_tv.text = answerString
 
     }
 }
