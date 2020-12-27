@@ -3,4 +3,5 @@
     <string name="welcome_message">Hey queen, congratulations on making it into the levelled membership programme being set up by the SCA community. \n\I hope you know you are on the wrong branch right? Head over to your respective level branch and start your project.\n\nWishing you best of luck!!!</string>
     <string name="track_name">SCA Initiative - \nKotlin track</string>
     <string name="sca_logo_description">sca_logo</string>
+    <string name="equals">=</string>
 </resources>

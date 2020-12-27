@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,30 +23,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calclator_tv">
+        app:layout_constraintTop_toBottomOf="@+id/calculator_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/twenty_dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/firstNumberTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/operatorTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/operatorTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/secondNumberTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstNumberTv" />
+
+            <TextView
+                android:id="@+id/secondNumberTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/answer_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/operatorTv" />
+
+            <TextView
+                android:id="@+id/answer_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="36sp"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/secondNumberTv" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -67,6 +88,7 @@
             android:id="@+id/one_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="numberButtonClicked"
             android:text="1"
             app:layout_constraintBottom_toTopOf="@+id/zero_btn"
             app:layout_constraintEnd_toStartOf="@+id/two_btn"
@@ -79,7 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2"
-            app:layout_constraintBottom_toTopOf="@+id/modulus_btn"
+            android:onClick="numberButtonClicked"
+            app:layout_constraintBottom_toTopOf="@+id/dot_btn"
             app:layout_constraintEnd_toStartOf="@+id/three_btn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/one_btn"
@@ -90,6 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/equals_btn"
             app:layout_constraintEnd_toStartOf="@+id/minus_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -100,6 +124,7 @@
             android:id="@+id/minus_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="operatorButtonClicked"
             android:text="-"
             app:layout_constraintBottom_toTopOf="@+id/add_btn"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/one_btn"
             app:layout_constraintEnd_toStartOf="@+id/five_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -123,6 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/two_btn"
             app:layout_constraintEnd_toStartOf="@+id/six_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -134,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/three_btn"
             app:layout_constraintEnd_toStartOf="@+id/divide_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -145,6 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="/"
+            android:onClick="operatorButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/minus_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -156,6 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="7"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/four_btn"
             app:layout_constraintEnd_toStartOf="@+id/eight_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -167,6 +197,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/five_btn"
             app:layout_constraintEnd_toStartOf="@+id/nine_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -178,6 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/six_btn"
             app:layout_constraintEnd_toStartOf="@+id/multiply_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -189,6 +221,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="*"
+            android:onClick="operatorButtonClicked"
             app:layout_constraintBottom_toTopOf="@+id/divide_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -200,8 +233,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/modulus_btn"
+            app:layout_constraintEnd_toStartOf="@+id/dot_btn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/one_btn" />
@@ -211,6 +245,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
+            android:onClick="operatorButtonClicked"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -218,10 +253,11 @@
             app:layout_constraintTop_toBottomOf="@+id/minus_btn" />
 
         <Button
-            android:id="@+id/modulus_btn"
+            android:id="@+id/dot_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="%"
+            android:text="."
+            android:onClick="numberButtonClicked"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/equals_btn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -232,16 +268,17 @@
             android:id="@+id/equals_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="="
+            android:onClick="equalButtonClicked"
+            android:text="@string/equals"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/add_btn"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/modulus_btn"
+            app:layout_constraintStart_toEndOf="@+id/dot_btn"
             app:layout_constraintTop_toBottomOf="@+id/three_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/calclator_tv"
+        android:id="@+id/calculator_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
