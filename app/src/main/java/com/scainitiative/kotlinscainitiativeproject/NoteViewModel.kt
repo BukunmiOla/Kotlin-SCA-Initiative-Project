@@ -8,11 +8,7 @@ import com.scainitiative.kotlinscainitiativeproject.database.Note
 
 class NoteViewModel(app: Application):AndroidViewModel(app) {
 
-    var allNotes : MutableLiveData<List<Note>>
-
-    init {
-        allNotes = MutableLiveData()
-    }
+    var allNotes : MutableLiveData<List<Note>> = MutableLiveData()
 
     fun getAllNoteObserver(): MutableLiveData<List<Note>>{
         return  allNotes

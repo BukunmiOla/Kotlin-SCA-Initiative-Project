@@ -32,7 +32,7 @@ class ShowNoteFragment : Fragment() {
         when (val title = args.title){
             "new" -> {
                 saveButton.setOnClickListener {
-                    val note = Note(noteTitle = noteTitleEt.text.toString(), noteContent = noteContentEt.text.toString())
+                    val note = Note(2,noteTitleEt.text.toString(), noteContentEt.text.toString())
                     createNote(note)
                 }
             }
@@ -57,7 +57,7 @@ class ShowNoteFragment : Fragment() {
         return noteDao?.findByTitle(title)
     }
 
-    fun createNote(note: Note){
+    private fun createNote(note: Note){
         val noteDao = AppDatabase.getAppDatabase(Application())?.noteDao()
         noteDao?.insert(note)
     }

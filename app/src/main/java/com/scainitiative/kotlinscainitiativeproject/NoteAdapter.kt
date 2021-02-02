@@ -27,6 +27,8 @@ class NoteAdapter():
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return if(::items.isInitialized){
+            items.size
+        }else 0
     }
 }
