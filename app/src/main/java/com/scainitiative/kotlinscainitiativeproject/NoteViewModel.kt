@@ -15,7 +15,7 @@ class NoteViewModel(app: Application):AndroidViewModel(app) {
     }
 
 
-    private fun getAllNotes(){
+     fun getAllNotes(){
         val noteDao = AppDatabase.getAppDatabase(getApplication())?.noteDao()
         val noteList = noteDao?.getAllNotes()
 

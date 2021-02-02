@@ -32,8 +32,9 @@ class ShowNoteFragment : Fragment() {
         when (val title = args.title){
             "new" -> {
                 saveButton.setOnClickListener {
-                    val note = Note(2,noteTitleEt.text.toString(), noteContentEt.text.toString())
+                    val note = Note(0,noteTitleEt.text.toString(), noteContentEt.text.toString())
                     createNote(note)
+                    activity?.onBackPressed()
                 }
             }
             else ->{
@@ -45,6 +46,7 @@ class ShowNoteFragment : Fragment() {
                     val note = id?.let { it1 -> Note(it1,noteTitleEt.text.toString(), noteContentEt.text.toString()) }
                     if (note != null) {
                         updateNote(note)
+                        activity?.onBackPressed()
                     }
                 }
             }

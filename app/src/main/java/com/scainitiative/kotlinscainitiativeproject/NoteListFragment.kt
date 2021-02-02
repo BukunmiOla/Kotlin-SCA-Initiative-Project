@@ -53,14 +53,14 @@ class NoteListFragment : Fragment() {
             }
         }
         viewModel = ViewModelProviders.of(requireActivity()).get(NoteViewModel::class.java)
-        val note1 = Note(0,"God is good","Our GOd is awesome")
-        viewModel.createNote(note1)
+//        val note1 = Note(0,"God is good","Our GOd is awesome")
+//        viewModel.createNote(note1)
         viewModel.getAllNoteObserver().observe(viewLifecycleOwner, Observer {
             noteAdapter.setListData(ArrayList(it),listener)
             noteAdapter.notifyDataSetChanged()
         })
 
-
+viewModel.getAllNotes()
     }
 
     private fun showNote(title: String) {
